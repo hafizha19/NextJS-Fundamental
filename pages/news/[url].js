@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import Image from "next/image"
 
-const detail = () => {
+const Detail = () => {
     const router = useRouter()
     const { query } = router;
 
@@ -27,4 +27,4 @@ const detail = () => {
     )
 }
 
-export default detail
+export default Detail

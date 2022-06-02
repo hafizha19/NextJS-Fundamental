@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Ssg({meals}) {
 
@@ -15,7 +16,7 @@ export default function Ssg({meals}) {
                     meals.map((meal) => (
                         <div key={meal.idMeal} style={{ marginTop: '15px', width: '250px', padding: 'auto', padding: '30px' }}>
                             <p style={{ background: "none" }}>{meal.strMeal}</p>
-                            <img style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
+                            <Image style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
                             <Link href={{
                                 pathname: `/fetch-data/ssg/${meal.idMeal}`
                             }}>

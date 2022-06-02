@@ -1,4 +1,4 @@
-import { data } from './data'
+import {data} from '../../data.js'
 import Link from 'next/dist/client/link'
 import Image from 'next/image'
 import styles from '../../styles/Border.module.css'

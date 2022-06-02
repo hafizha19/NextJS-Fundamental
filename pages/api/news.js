@@ -1,4 +1,4 @@
-import { data } from '../news/data'
+import { data } from '../../data.js'
 
 export default function handler(req, res) {
     if (req.method === 'GET') {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from '../../styles/Home.module.css'
+import Image from "next/image"
 
 export default function Csr() {
     const [meals, setMeals] = useState()
@@ -31,7 +32,7 @@ export default function Csr() {
                     meals.map((meal) => (
                         <div key={meal.idMeal} style={{ marginTop: '15px', width: '250px', padding: '30px'}}>
                             <p style={{ background: "none" }}>{meal.strMeal}</p>
-                            <img style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
+                            <Image style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
                         </div>
                     ))
                 ) : (
