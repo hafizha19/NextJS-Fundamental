@@ -5,7 +5,7 @@ const MealDetail = ({data}) => {
     return (
         <div>
             <h3 style={{ textAlign: 'center' }}>Detail {data.strMeal} </h3>
-            <Image style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }} src={data.strMealThumb} alt={data.strMealThumb} />
+            <Image width= {400} height={400} style={{marginLeft: 'auto', marginRight: 'auto', display: 'block' }} src={data.strMealThumb} alt={data.strMealThumb} />
             <div style={{ border: '1px solid black', margin: '10px 150px' }}>
                 <p style={{ 'padding-left': '100px', 'padding-right': '100px', background: 'none', textAlign: 'center' }}>
                     How to make:

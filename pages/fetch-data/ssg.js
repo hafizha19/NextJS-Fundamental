@@ -16,7 +16,7 @@ export default function Ssg({meals}) {
                     meals.map((meal) => (
                         <div key={meal.idMeal} style={{ marginTop: '15px', width: '250px', padding: 'auto', padding: '30px' }}>
                             <p style={{ background: "none" }}>{meal.strMeal}</p>
-                            <Image style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
+                            <Image width= {400} height={400} src={meal.strMealThumb} alt={meal.strMeal} />
                             <Link href={{
                                 pathname: `/fetch-data/ssg/${meal.idMeal}`
                             }}>

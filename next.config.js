@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['i.pinImage.com']
+    domains: ['cdn.wallpapersafari.com', 'www.themealdb.com']
   }
 }
 

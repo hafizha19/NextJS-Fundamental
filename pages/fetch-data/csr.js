@@ -32,7 +32,7 @@ export default function Csr() {
                     meals.map((meal) => (
                         <div key={meal.idMeal} style={{ marginTop: '15px', width: '250px', padding: '30px'}}>
                             <p style={{ background: "none" }}>{meal.strMeal}</p>
-                            <Image style={{ width: '100px', height: 'auto' }} src={meal.strMealThumb} alt={meal.strMeal} />
+                            <Image width= {400} height={400} src={meal.strMealThumb} alt={meal.strMeal} />
                         </div>
                     ))
                 ) : (
