@@ -7,16 +7,28 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <Link href="/about">
-          <p>
-            About (coloring with globals.css)
-          </p>
-        </Link>
-        <Link href='/news'>
-          {/* <h1 className='styles2.border-black'> */}
-            News
-          {/* </h1> */}
-        </Link>
+        <div className={styles.border}>
+          <Link href="/fetch-data/csr">
+            <h1 style={{ background: 'none', color: 'white' }}>
+              CSR
+            </h1>
+          </Link>
+          <Link href="/fetch-data/ssr">
+            <h1 style={{ background: 'none', color: 'white' }}>
+              SSR
+            </h1>
+          </Link>
+          <Link href="/fetch-data/ssg">
+            <h1 style={{ background: 'none', color: 'white' }}>
+              SSG
+            </h1>
+          </Link>
+          <Link href="/fetch-data/isr">
+            <h1 style={{ background: 'none', color: 'white' }}>
+              ISR
+            </h1>
+          </Link>
+        </div>
       </main>
     </div>
   )
