@@ -3,8 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GET_PRODUCTS_BY_CATEGORY, GET_CATEGORY_BY_ID } from "./schema";
+import { useStyles } from './styles'
+import Button from '@material-ui/core/Button';
 
 const CategoryId = () => {
+    const styles = useStyles()
     const router = useRouter()
     const { unique } = router.query
 
@@ -31,11 +34,13 @@ const CategoryId = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div style={{ padding: '10px' }}>
-                <Link href={'/'}><p>Back to Home</p></Link>
+                <Link href={'/'}>
+                    <Button className={styles.buttonCustom} variant="contained" color="primary">Back to Home</Button>
+                </Link>
                 <h1 style={{ textAlign: 'center' }}>Products by Category </h1>
                 <p> Name : {dataCategory.category.name}</p>
                 <div className="{styles.border}">
-                    <h3 style={{textAlign: 'center'}}>Products</h3>
+                    <h3 style={{ textAlign: 'center' }}>Products</h3>
                     {data.products.items.map((item) => (
                         <Link href={`/categories/product/${item.sku}`} key={item.id}>
                             <p>

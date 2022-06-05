@@ -2,6 +2,8 @@ import { gql, useQuery } from '@apollo/client'
 import Link from 'next/link'
 import styles from '@styles/Home.module.css'
 import Head from 'next/head'
+import { useStyles } from './styles'
+import Button from '@material-ui/core/Button';
 
 const GET_CATEGORIES = gql`
     {
@@ -15,6 +17,7 @@ const GET_CATEGORIES = gql`
 `
 
 const Categories = () => {
+    const styles = useStyles()
     const title = "category"
     const response = useQuery(GET_CATEGORIES)
 
@@ -32,7 +35,10 @@ const Categories = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Link href={'/'}><p>Back to Home</p></Link>
+            <Link href={'/'}>
+                <Button className={styles.buttonCustom} variant="contained" color="primary">Back to Home</Button>
+                {/* <p>Back to Home</p> */}
+            </Link>
             <h1 style={{ textAlign: 'center' }}>Use Query Page</h1>
             <div>
                 {data?.categories && data.categories.items.map((item) => (

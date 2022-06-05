@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GET_PRODUCT_BY_SKU } from "../schema";
+import { useStyles } from '../styles'
+import Button from '@material-ui/core/Button';
 
 const Product = () => {
+    const styles = useStyles()
     const router = useRouter()
     const { sku } = router.query
 
@@ -28,12 +31,14 @@ const Product = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div style={{ padding: '10px' }}>
-                <Link href={'/'}><p>Back to Home</p></Link>
+                <Link href={'/'}>
+                    <Button className={styles.buttonCustom} variant="contained" color="primary">Back to Home</Button>
+                </Link>
                 <h1 style={{ textAlign: 'center' }}>Detail Product </h1>
                 <p>Name: {data.products.items[0].name}</p>
                 <p>Price: {data.products.items[0].price.regularPrice.amount.value}</p>
                 <p>Description: {data.products.items[0].description.html}</p>
-                <Image src={data.products.items[0].image.url} alt={data.products.items[0].name} width={400} height={400}/>
+                <Image src={data.products.items[0].image.url} alt={data.products.items[0].name} width={400} height={400} />
             </div>
         </div>
     )
