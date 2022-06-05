@@ -1,72 +1,81 @@
 import { useState } from "react";
 import Image from 'next/image'
+import { gql, useMutation } from '@apollo/client'
+import { POST_SUBSCRIBE } from "pages/categories/schema";
+import styles from "@styles/Home.module.css"
 
 function NewsPage() {
     const [title, setTitle] = useState([]);
-    const [content, setContent] = useState([]);
-    const [url, setUrl] = useState([]);
-    const [image, setImage] = useState([]);
-    const [news, setNews] = useState([]);
+    const [status, setStatus] = useState([]);
+    // const [content, setContent] = useState([]);
+    // const [url, setUrl] = useState([]);
+    // const [image, setImage] = useState([]);
+    // const [news, setNews] = useState([]);
 
-    const fetchNews = async () => {
-        const response = await fetch("/api/news");
-        const data = await response.json();
-        console.log(data);
-        setNews(data);
-    };
+    const [dataSubscribe] = useMutation(POST_SUBSCRIBE)
+
+    // const fetchNews = async () => {
+    //     const response = await fetch("/api/news");
+    //     const data = await response.json();
+    //     console.log(data);
+    //     setNews(data);
+    // };
+
+    // const submitNews = async () => {
+    //     const response = await fetch("/api/news", {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             title,
+    //             content,
+    //             image,
+    //             url
+    //         }),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     });
+    //     const data = await response.json();
+    //     console.log('data', data);
+    // };
 
     const submitNews = async () => {
-        const response = await fetch("/api/news", {
-            method: "POST",
-            body: JSON.stringify({
-                title,
-                content,
-                image,
-                url
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await response.json();
-        console.log('data', data);
-    };
+        console.log(title)
+        const responseData = await dataSubscribe({
+            variables: {
+                email: title
+            }
+        })
+        setStatus(responseData.data.subscribe.status)
+        // if (responseData.data.subscribe.status.response === 'Failed') {
+
+        // }
+    }
+
     return (
-        <>
-            <div align="center">
-                {"Title: "}
-                <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+        <div className={styles.containerall}>
+            <main className={styles.main}>
+                <h1>Submit email to subscribe</h1>
+                <div style={{ display: 'flex' }}>
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <br />
+                    <button onClick={submitNews}>Submit</button>
+                </div>
                 <br />
-                {"Content: "}
-                <input
-                    type="text"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                />
-                <br />
-                {"URL: "}
-                <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                />
-                <br />
-                {"Image: "}
-                <input
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                />
-                <br />
-                <button onClick={submitNews}>Submit news</button>
-            </div>{" "}
-            <br />
-            <br /> <br />
-            <div align="center">
+                <p>Status: </p>
+                <div>
+                    {
+                        status.response === 'Failed' ? (
+                            <p>{status.message}</p>
+                        ) : (
+                            <p>Sukses</p>
+                        )
+                    }
+                </div>
+                {/* <div align="center">
                 <button onClick={fetchNews}>Get the latest news</button>
             </div>{" "}
             {news.map((item) => {
@@ -87,8 +96,9 @@ function NewsPage() {
                         <hr />
                     </div>
                 );
-            })}{" "}
-        </>
+            })}{" "} */}
+            </main>
+        </div>
     );
 }
 

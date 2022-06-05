@@ -3,6 +3,10 @@
   background-image: url("https://cdn.wallpapersafari.com/56/90/8sTURd.jpg");
 }
 
+.containerall {
+  padding: 0 2rem;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
