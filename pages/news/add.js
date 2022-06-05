@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from 'next/image'
 import { gql, useMutation } from '@apollo/client'
-import { POST_SUBSCRIBE } from "pages/categories/schema";
+import { POST_SUBSCRIBE } from "../../schema";
 import styles from "@styles/Home.module.css"
 
 function NewsPage() {

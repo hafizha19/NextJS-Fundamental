@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client'
 import Link from 'next/link'
 import styles from '@styles/Home.module.css'
 import Head from 'next/head'
-import { useStyles } from './styles'
+import { useStyles } from '../../styles'
 import Button from '@material-ui/core/Button';
 
 const GET_CATEGORIES = gql`

@@ -2,8 +2,8 @@ import { useQuery } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { GET_PRODUCTS_BY_CATEGORY, GET_CATEGORY_BY_ID } from "./schema";
-import { useStyles } from './styles'
+import { GET_PRODUCTS_BY_CATEGORY, GET_CATEGORY_BY_ID } from "../../schema";
+import { useStyles } from '../../styles'
 import Button from '@material-ui/core/Button';
 
 const CategoryId = () => {

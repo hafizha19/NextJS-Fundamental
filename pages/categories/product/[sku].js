@@ -3,8 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { GET_PRODUCT_BY_SKU } from "../schema";
-import { useStyles } from '../styles'
+import { GET_PRODUCT_BY_SKU } from "../../../schema";
+import { useStyles } from '../../../styles'
 import Button from '@material-ui/core/Button';
 
 const Product = () => {

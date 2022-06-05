@@ -1,9 +1,9 @@
-import { GET_CATEGORIES } from "./schema";
+import { GET_CATEGORIES } from "../../schema";
 // import { styles } from '@styles/Home.module.css'
 import { useLazyQuery } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
-import { useStyles } from "./styles";
+import { useStyles } from "../../styles";
 import Button from '@material-ui/core/Button';
 
 const Lazy = () => {
