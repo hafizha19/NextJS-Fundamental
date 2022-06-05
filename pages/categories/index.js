@@ -37,19 +37,15 @@ const Categories = () => {
 
             <Link href={'/'}>
                 <Button className={styles.buttonCustom} variant="contained" color="primary">Back to Home</Button>
-                {/* <p>Back to Home</p> */}
             </Link>
             <h1 style={{ textAlign: 'center' }}>Use Query Page</h1>
             <div>
                 {data?.categories && data.categories.items.map((item) => (
-                    <ul>
-                        <li>
-                            <Link href={`/categories/${item.id}`} key={item.id}>
-                                {item.name}
-                            </Link>
-                            {/* <Image width= {400} height={400} src={} alt={} /> */}
-                        </li>
-                    </ul>
+                    <Link href={`/categories/${item.id}`} key={item.id}>
+                        <p>
+                        {item.name}
+                        </p>
+                    </Link>
                 ))
                 }
             </div>
