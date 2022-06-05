@@ -27,7 +27,7 @@ export default function Csr() {
                 <p style={{ textAlign: 'center', background: 'none'}}>Home</p>
             </Link>
             <h1 style={{textAlign: 'center'}}>Seafood Meals (CSR)</h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap', margin: '2px', background: '#80808024'}}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', margin: '2px', background: '#80808024'}}>
                 {meals ? (
                     meals.map((meal) => (
                         <div key={meal.idMeal} style={{ marginTop: '15px', width: '250px', padding: '30px'}}>
