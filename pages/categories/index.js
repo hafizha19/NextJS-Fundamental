@@ -26,7 +26,6 @@ const Categories = () => {
     if (error) return `Error: ${error.message}`
 
     console.log(data)
-
     return (
         <div>
             <Head>

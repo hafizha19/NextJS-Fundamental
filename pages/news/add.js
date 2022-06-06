@@ -46,6 +46,7 @@ function NewsPage() {
             }
         })
         setStatus(responseData.data.subscribe.status)
+        console.log(status)
         // if (responseData.data.subscribe.status.response === 'Failed') {
 
         // }
@@ -68,10 +69,10 @@ function NewsPage() {
                 <p>Status: </p>
                 <div>
                     {
-                        status.response === 'Failed' ? (
-                            <p>{status.message}</p>
+                        status ? (
+                            <p></p>
                         ) : (
-                            <p>Sukses</p>
+                            <p>{status.message}</p>
                         )
                     }
                 </div>

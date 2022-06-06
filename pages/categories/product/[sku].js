@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { GET_PRODUCT_BY_SKU } from "../../../schema";
 import { useStyles } from '../../../styles'
 import Button from '@material-ui/core/Button';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const Product = () => {
     const styles = useStyles()
@@ -17,9 +18,6 @@ const Product = () => {
             sku: sku
         }
     })
-
-    if (loading) return <p>Loading ...</p>;
-    if (error) return `Error! ${error}`;
 
     console.log(data)
 
@@ -34,14 +32,31 @@ const Product = () => {
                 <Link href={'/'}>
                     <Button className={styles.buttonCustom} variant="contained" color="primary">Back to Home</Button>
                 </Link>
-                <h1 style={{ textAlign: 'center' }}>Detail Product </h1>
-                <p>Name: {data.products.items[0].name}</p>
-                <p>Price: {data.products.items[0].price.regularPrice.amount.value}</p>
-                <p>Description: {data.products.items[0].description.html}</p>
-                <Image src={data.products.items[0].image.url} alt={data.products.items[0].name} width={400} height={400} />
+                <div>
+                    <h1 style={{ textAlign: 'center' }}>Detail Product </h1>
+                    {
+                        loading ? (
+                            <div>
+                                <Skeleton variant="text" />
+                                <Skeleton variant="text" />
+                                <Skeleton variant="text" />
+                                <Skeleton variant="rect" width={210} height={118} />
+                            </div>
+                        ) : (
+                            <div>
+                                <p>Name: {data.products.items[0].name}</p>
+                                <p>Price: {data.products.items[0].price.regularPrice.amount.value}</p>
+                                <div dangerouslySetInnerHTML={{ __html: data.products.items[0].description.html }}></div>
+                                <Image src={data.products.items[0].image.url} alt={data.products.items[0].name} width={400} height={400} />
+                            </div>
+                        )
+                    }
+                </div>
             </div>
         </div>
     )
+
+
 }
 
 export default Product
